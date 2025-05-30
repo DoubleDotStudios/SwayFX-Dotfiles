@@ -7,7 +7,7 @@
 5. [SwayNC](#swaync)
 6. [Yazi](#yazi)
 7. [Librewolf](#librewolf)
-8. [Waybar && EWW](#waybar-&&-eww)
+8. [Waybar && EWW](#waybar--eww)
 9. [Neovim](#neovim)
 10. [Usage](#usage)
 11. [Credit](#credit)
