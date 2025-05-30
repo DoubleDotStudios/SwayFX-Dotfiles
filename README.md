@@ -9,17 +9,17 @@ These are my SwayFX dotfiles. I think they're near perfect and it's been my best
 ***
 
 ## Screenshots
-![Blank workspace](./Blank.png)
+![Blank workspace](./misc/Blank.png)
 *Blank workspace*
-![SwayNC and Calendar](./Populated.png)
+![SwayNC and Calendar](./misc/Populated.png)
 *SwayNC and Calendar*
-![Kitty and Yazi](./Kitty-Yazi.png)
+![Kitty and Yazi](./misc/Kitty-Yazi.png)
 *Kitty and Yazi*
-![SolarVim](./SolarVim.png)
+![SolarVim](./misc/SolarVim.png)
 *Solarvim*
-![Fastfetch](./Fetch.png)
+![Fastfetch](./misc/Fetch.png)
 *Fastfetch*
-![Librewolf](./Librewolf.png)
+![Librewolf](./misc/Librewolf.png)
 *Librewolf*
 
 ***
