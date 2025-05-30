@@ -88,9 +88,9 @@ You can either install using the [script](#script-install) I made or [manually](
 #### Script Install
 > [!IMPORTANT]
 > Please **DO NOT** blindly trust scripts from the internet.
-> Feel free to read over the [script](./install.sh), there are comments there detailing what the script does.
+> Feel free to read over the [script](../install.sh), there are comments there detailing what the script does.
 ```console
-curl -s [url]/install.sh | bash -s
+curl -s https://raw.githubusercontent.com/DoubleDotStudios/SwayFX-Dotfiles/refs/heads/main/install.sh/install.sh | bash -s
 ```
 
 #### Manual Install
