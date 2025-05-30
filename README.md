@@ -1,10 +1,26 @@
 # SwayFX Dotfiles
 
 > [!NOTE]
-> A more in depth file on my dotfiles can be read [here](./misc/Details.md).
+> A more in depth file on my dotfiles can be read [here](./misc/README.md).
 > I also have a [video]() on it, however, half of the video uses my old waybar setup.
 
 These are my SwayFX dotfiles. I think they're near perfect and it's been my best ricing experience.
+
+***
+
+## Screenshots
+![Blank workspace](./Blank.png)
+*Blank workspace*
+![SwayNC and Calendar](./Populated.png)
+*SwayNC and Calendar*
+![Kitty and Yazi](./Kitty-Yazi.png)
+*Kitty and Yazi*
+![SolarVim](./SolarVim.png)
+*Solarvim*
+![Fastfetch](./Fetch.png)
+*Fastfetch*
+![Librewolf](./Librewolf.png)
+*Librewolf*
 
 ***
 
@@ -56,3 +72,15 @@ mv ./zshrc ~/.zshrc
 ```
 
 6. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
+
+***
+
+## Credit
+#### Catppuccin
+[Sway theme](https://catppuccin.com/ports/?q=i3%2Fsway), [SwayNC](https://catppuccin.com/ports/?q=swaync), [Yazi](https://catppuccin.com/ports/?q=yazi)
+
+#### saimoonedits
+[EWW bar](https://github.com/Saimoomedits/eww-widgets) used as inspiration for Waybar, [EWW calendar](https://github.com/Saimoomedits/eww-widgets)
+
+#### FGD
+[Catppuccin Mokka Tree wallpaper](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-mokka/-/blob/main/wallpapers/Mokka-tree.jpg?ref_type=heads)
