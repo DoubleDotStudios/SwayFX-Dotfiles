@@ -1,6 +1,6 @@
 # SwayFX Dotfiles
 
-> ![NOTE]
+> [!NOTE]
 > A more in depth file on my dotfiles can be read [here](./misc/Details.md).
 > I also have a [video]() on it, however, half of the video uses my old waybar setup.
 
