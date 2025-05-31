@@ -44,11 +44,6 @@ mkdir -p ~/.local/share/fonts
 mv ./fonts/* ~/.local/share/fonts/
 echo "Done!\n"
 
-# Unzip newly added fonts
-echo "Decompressing fonts..."
-unzip ~/.local/share/fonts/*
-echo "Done!\n"
-
 # Rebuild font cache
 echo "Rebuilding font cache..."
 fc-cache -f -v
