@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > A more in depth file on my dotfiles can be read [here](./misc/README.md).
-> I also have a [video]() on it, however, half of the video uses my old waybar setup.
+> I also have a [video](https://www.youtube.com/watch?v=OfaNjMxgHG4) on it, however, most of the video uses my old waybar setup.
 
 These are my SwayFX dotfiles. I think they're near perfect and it's been my best ricing experience.
 
