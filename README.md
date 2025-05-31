@@ -33,8 +33,16 @@ These are my SwayFX dotfiles. I think they're near perfect and it's been my best
 - Kitty
 - Yazi
 - Rofi Wayland
+- Hyprlock
+- Swayidle
+- Waypaper
+- Fastfetch
 
 ### Install
+> [!NOTE]
+> If you want the textfox config then once the script has finished you need to manually move the textfox config:
+> See Step 9 under [Manual Install](#manual-install) to find out how.
+
 You can either install using the [script](#script-install) I made or [manually](#manual-install).
 
 #### Script Install
@@ -71,7 +79,31 @@ mv ./rofi/* ~/.local/share/rofi/
 mv ./zshrc ~/.zshrc
 ```
 
-6. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
+6. Move the fonts to `~/.local/share/fonts` and reload font config:
+```console
+mv ./fonts/* ~/.local/share/fonts/
+fc-cache -f -v
+```
+
+7. Unzip the newly added fonts:
+```console
+unzip ~/.local/share/fonts/*
+```
+
+8. Move the icons and cursors to `~/.icons`:
+```console
+mv ./icons/* ~/.icons/
+```
+
+9. Move the textfox config to you librewolf profile:
+> [!NOTE]
+> You can find out how to do this here (steps 2-6):
+> https://github.com/adriankarlen/textfox#manual
+```
+mv ./librewolf/* PATH_TO_YOUR_PROFILE
+```
+
+10. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
 
 ***
 

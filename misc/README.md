@@ -81,8 +81,16 @@ My Neovim config is one that I made in December of last year, it's based on [Kic
 - Kitty
 - Yazi
 - Rofi Wayland
+- Hyprlock
+- Swayidle
+- Waypaper
+- Fastfetch
 
 ### Install
+> [!NOTE]
+> If you want the textfox config then once the script has finished you need to manually move the textfox config:
+> See Step 9 under [Manual Install](#manual-install) to find out how.
+
 You can either install using the [script](#script-install) I made or [manually](#manual-install).
 
 #### Script Install
@@ -119,13 +127,37 @@ mv ./rofi/* ~/.local/share/rofi/
 mv ./zshrc ~/.zshrc
 ```
 
-6. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
+6. Move the fonts to `~/.local/share/fonts` and reload font config:
+```console
+mv ./fonts/* ~/.local/share/fonts/
+fc-cache -f -v
+```
+
+7. Unzip the newly added fonts:
+```console
+unzip ~/.local/share/fonts/*
+```
+
+8. Move the cursors and icons to `~/.icons`:
+```console
+mv ./icons/* ~/.icons/
+```
+
+9. Move the textfox config to you librewolf profile:
+> [!NOTE]
+> You can find out how to do this here (steps 2-6):
+> https://github.com/adriankarlen/textfox#manual
+```
+mv ./librewolf/* PATH_TO_YOUR_PROFILE
+```
+
+10. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
 
 ***
 
 ## Credit
 #### Catppuccin
-[Sway theme](https://catppuccin.com/ports/?q=i3%2Fsway), [SwayNC](https://catppuccin.com/ports/?q=swaync), [Yazi](https://catppuccin.com/ports/?q=yazi)
+[Sway theme](https://catppuccin.com/ports/?q=i3%2Fsway), [SwayNC](https://catppuccin.com/ports/?q=swaync), [Yazi](https://catppuccin.com/ports/?q=yazi), [Cursors](https://github.com/catppuccin/cursors)
 
 #### saimoonedits
 [EWW bar](https://github.com/Saimoomedits/eww-widgets) used as inspiration for Waybar, [EWW calendar](https://github.com/Saimoomedits/eww-widgets)
