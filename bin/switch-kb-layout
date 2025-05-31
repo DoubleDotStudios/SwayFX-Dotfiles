@@ -1,0 +1,8 @@
+#!/bin/bash
+
+swaymsg input type:keyboard xkb_switch_layout next
+
+layout=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
+layout=${layout//\"/}
+
+notify-send "Keyboard layout:" "$layout"

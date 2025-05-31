@@ -1,0 +1,40 @@
+#!/bin/bash
+
+TYPE=0
+STATUS=0
+
+if [ "$1" == "-s" ]; then
+	if [ "$2" == "-c" ]; then
+		IMG=$(mktemp --suffix=.png)
+		grim -g "$(slurp)" - > "$IMG"
+		STATUS=$?
+		if [ "$STATUS" -eq 0 ]; then
+			wl-copy < "$IMG"
+		fi
+		rm -f "$IMG"
+		TYPE=1
+	else
+		grim -g "$(slurp)" "$HOME/Pictures/Screenshots/Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
+		STATUS=$?
+		TYPE=0
+	fi
+elif [ "$1" == "-c" ]; then
+	grim - | wl-copy
+	STATUS=$?
+	TYPE=1
+else
+	grim "$HOME/Pictures/Screenshots/Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
+	STATUS=$?
+	TYPE=0
+fi
+
+
+if [ "$STATUS" -eq 0 ]; then
+	if [ "$TYPE" -eq 1 ]; then
+		notify-send "Screenshot captured!" "Saved to clipboard."
+	else
+		notify-send "Screenshot captured!" "Saved to ~/Pictures/Screenshots/"
+	fi
+else
+	notify-send "Screenshot aborted!" "No capture was taken."
+fi

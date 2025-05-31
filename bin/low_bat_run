@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pkill low_battery
+~/Desktop/.Scripts/low_battery &
+sleep 1
+disown

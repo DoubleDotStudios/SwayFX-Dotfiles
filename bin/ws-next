@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+WS=$(($(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num') + 1))
+
+if [[ "$WS" -gt 4 ]]; then
+	echo 1
+else
+	echo $WS
+fi

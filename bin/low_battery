@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+NOTIFY80=0
+NOTIFY20=0
+NOTIFY10=0
+
+while true; do
+CAP=$(cat /sys/class/power_supply/BAT0/capacity)
+STAT=$(cat /sys/class/power_supply/BAT0/status)
+
+if [ "$STAT" = "Discharging" ]; then
+	if [ "$CAP" -eq 20 ] && [ "$NOTIFY20" -eq 0 ]; then
+		notify-send -u critical 'Battery Low!' 'Remaining capacity: 20%'
+		NOTIFY20=1
+	elif [ "$CAP" -eq 10 ] && [ "$NOTIFY10" -eq 0 ]; then
+		notify-send -u critical 'Battery Very Low!' 'Remaining capacity: 10%'
+		NOTIFY10=1
+	elif [ "$CAP" -eq 80 ]; then
+		NOTIFY80=0
+	fi
+elif [ "$STAT" = "Charging" ]; then
+	if [ "$CAP" -eq 80 ] && [ "$NOTIFY80" -eq 0 ]; then
+		notify-send -u critical 'Battery Charged!' 'You can unplug the charger.'
+		NOTIFY80=1
+	elif [ "$CAP" -eq 20 ]; then
+		NOTIFY20=0
+	elif [ "$CAP" -eq 10 ]; then
+		NOTIFY10=0
+
+	fi
+fi
+
+sleep 30
+done
