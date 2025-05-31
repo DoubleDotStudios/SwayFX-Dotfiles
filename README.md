@@ -41,7 +41,7 @@ These are my SwayFX dotfiles. I think they're near perfect and it's been my best
 ### Install
 > [!NOTE]
 > If you want the textfox config then once the script has finished you need to manually move the textfox config:
-> See Step 8 under [Manual Install](#manual-install) to find out how.
+> See Step 9 under [Manual Install](#manual-install) to find out how.
 
 You can either install using the [script](#script-install) I made or [manually](#manual-install).
 
@@ -90,7 +90,12 @@ fc-cache -f -v
 mv ./icons/* ~/.icons/
 ```
 
-8. Move the textfox config to you librewolf profile:
+8. Move the wallpapers to `~/Pictures/Wallpapers`:
+```console
+mv ./wallpapers/* ~/Pictures/Wallpapers/
+```
+
+9. Move the textfox config to you librewolf profile:
 > [!NOTE]
 > You can find out how to do this here (steps 2-6):
 > https://github.com/adriankarlen/textfox#manual
@@ -98,7 +103,7 @@ mv ./icons/* ~/.icons/
 mv ./librewolf/* PATH_TO_YOUR_PROFILE
 ```
 
-9. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
+10. Install [SolarVim](https://github.com/DoubleDotStudios/SolarVim) (optional)
 
 ***
 
