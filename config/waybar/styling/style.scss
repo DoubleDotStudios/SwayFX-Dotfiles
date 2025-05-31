@@ -1,0 +1,183 @@
+@use "sass:color";
+
+$yellow: #fbecc9;
+$blue: #afd0fc;
+$green: #c8f0c7;
+
+* {
+  border: none;
+  border-radius: 14px;
+  font-family: "feather", "DaddyTimeMono Nerd Font";
+  font-size: 16px;
+  min-height: 10px;
+}
+
+window#waybar {
+  background-color: rgba(30, 30, 46, 0.999);
+  border: 1.5px solid #cba6f7;
+}
+
+#backlight {
+  color: $yellow;
+  margin: 0px 10px 0px 10px;
+  font-size: 18px;
+}
+
+#backlight-slider trough highlight {
+  background-image: linear-gradient(to right, $yellow 30%, #f5c2e7 50%, #fab387 5000%);
+  border-radius: 10px;
+}
+
+#pulseaudio {
+  color: $blue;
+  margin: 0px 10px 0px 10px;
+  font-size: 18px;
+}
+
+#pulseaudio.muted {
+  color: #eba0ac;
+  margin: 0px 15px 0px 10px;
+}
+
+#pulseaudio-slider trough highlight {
+  background-image: linear-gradient(to right, $blue 30%, #89dceb 50%, #74c7ec 5000%);
+  border-radius: 10px;
+}
+
+scale trough {
+  all: unset;
+  background-color: #22242b;
+  box-shadow: 0 2px 3px 2px #06060b;
+  border-radius: 16px;
+  min-height: 10px;
+  min-width: 90px;
+  margin: 0px 5px 0px 0px;
+}
+
+scale slider {
+  background-image: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+#network {
+  color: $blue;
+  font-size: 18px;
+  border-radius: 100%;
+  margin: 0px 10px 0px 5px;
+}
+
+#network.disconnected {
+  color: #eba0ac;
+}
+
+#custom-essid {
+  font-size: 14px;
+  border-radius: 100%;
+  color: $blue;
+  margin: 1px 5px 0px 5px;
+}
+
+#custom-separator {
+  font-weight: bold;
+  font-size: 27px;
+  color: #45475a;
+}
+
+#custom-ram {
+  border-radius: 16px;
+  margin: 0px 5px 0px 10px;
+  font-size: 22px;
+  color: #eba0ac;
+}
+
+#battery {
+  border-radius: 16px;
+  margin: 0px 10px 0px 5px;
+  font-size: 22px;
+  color: $green;
+}
+
+#custom-clock-minutes,
+#custom-clock-hours {
+  font-size: 23px;
+}
+
+#custom-clock-hours {
+  font-weight: bold;
+  margin: 0px 5px 0px -3px;
+  color: #bac2de;
+}
+
+#custom-clock-minutes {
+  margin: 0px 10px 0px 3px;
+  color: #bac2de;
+}
+
+#custom-clock-separator {
+  font-size: 20px;
+  color: #bac2de;
+  margin: 0px 4px 1px 4px;
+}
+
+#custom-date {
+  font-size: 18px;
+  margin: 0px 20px 0px -1px;
+  color: #eba0ac;
+}
+
+#custom-music-symbol {
+  color: #eba0ac;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#custom-music {
+  color: #b4befe;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#custom-prev,
+#custom-next {
+  color: $blue;
+  font-size: 22px;
+  margin: 3px 8px 0px 8px;
+}
+
+#custom-prev {
+  margin: 3px 8px 0px 5px;
+}
+
+
+#custom-play-pause {
+  color: #94e2d5;
+  font-size: 24px;
+  margin: 3px 8px 0px 8px;
+}
+
+#workspaces {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 0px 0px 0px 6px;
+}
+
+#workspaces button {
+  background: transparent;
+  margin: 0px 5px 0px 0px;
+  color: $yellow;
+}
+
+#workspaces button.focused {
+  background: transparent;
+  color: $yellow;
+}
+
+#tray {
+  margin: 0px 10px 0px 5px;
+}

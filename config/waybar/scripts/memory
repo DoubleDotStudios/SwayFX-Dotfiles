@@ -1,0 +1,25 @@
+#!/bin/bash
+
+percentage=$(free | awk '/^Mem/ { printf("%.0f\n", $3/$2 * 100.0) }')
+
+if [ "$percentage" -lt 12 ]; then
+    icon="󰄰"
+elif [ "$percentage" -lt 23 ]; then
+    icon="󰪞"
+elif [ "$percentage" -lt 34 ]; then
+    icon="󰪟"
+elif [ "$percentage" -lt 45 ]; then
+    icon="󰪠"
+elif [ "$percentage" -lt 56 ]; then
+    icon="󰪡"
+elif [ "$percentage" -lt 67 ]; then
+    icon="󰪢"
+elif [ "$percentage" -lt 78 ]; then
+    icon="󰪣"
+elif [ "$percentage" -lt 89 ]; then
+    icon="󰪤"
+else
+    icon="󰪥"
+fi
+
+echo "{\"text\":\"$icon\",\"tooltip\":\"using $percentage% ram\"}"

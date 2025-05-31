@@ -1,0 +1,5 @@
+[manager]
+prepend_keymap = [
+{on=["m", "o"], run="shell 'kitty -e mpv . --loop-playlist=inf --no-video' --orphan", desc="play (Ordered)"},
+{on=["m", "s"], run="shell 'kitty -e mpv . --shuffle --loop-playlist=inf --no-video' --orphan", desc="play (Shuffled)"}
+]

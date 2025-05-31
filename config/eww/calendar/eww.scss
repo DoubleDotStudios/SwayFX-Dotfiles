@@ -1,0 +1,70 @@
+@use "sass:color";
+
+$bg: #1e1e2e;
+$text: #eba0ac;
+$text-dark: #9399b2;
+$purple: #cba6f7;
+$yellow: #fbecc9;
+
+* {
+  all: unset;
+  font-family: feather;
+  font-family: DaddyTimeMono Nerd Font Mono;
+}
+
+.cal {
+  background-color: $bg;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 18px;
+  font-weight: normal;
+  border-radius: 14px;
+  border: 2px solid $purple;
+
+  .cal-in {
+    padding: 0px 10px 0px 10px;
+    color: #bfc9db;
+
+    .cal {
+      &.highlight {
+        padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+
+      border: none;
+    }
+  }
+}
+
+calender {
+  color: $text-dark;
+  border: none;
+}
+
+calendar:selected {
+  color: $yellow;
+  border: none;
+}
+
+calendar.header {
+  color: $text;
+  font-weight: bold;
+  border: none;
+}
+
+calendar.button {
+  color: $text;
+  border: none;
+}
+
+calendar.highlight {
+  color: $yellow;
+  font-weight: bold;
+  border: none;
+}
+
+calendar:indeterminate {
+  color: $text-dark;
+  border: none;
+}

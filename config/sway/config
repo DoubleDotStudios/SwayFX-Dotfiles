@@ -1,0 +1,214 @@
+include catppuccin-mocha
+
+### Startup
+#
+# Startup Scripts
+exec --no-startup-id waypaper --restore
+exec --no-startup-id waybar
+exec --no-startup-id swayidle -w
+exec --no-startup-id swaync
+exec --no-startup-id ~/.local/bin/low_bat_run
+exec --no-startup-id autotiling
+
+# Cursor Style
+seat seat0 xcursor_theme cattpuccin-mocha-dark-cursors 28
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $term kitty
+set $browser librewolf
+set $bar pkill waybar || waybar
+set $launcher rofi -show drun -config ~/.config/rofi/sway.rasi
+set $logout rofi -show menu -modi 'menu:~/.local/share/rofi/scripts/rofi-power-menu --choices=logout/suspend/reboot/shutdown' -config ~/.config/rofi/power.rasi
+set $files kitty -e yazi
+set $ss ~/.local/bin/screenshot
+set $notification swaync-client -t -sw
+
+### SwayFX
+#
+# window corner radius in px
+corner_radius 15
+
+# Window background blur
+blur on
+blur_xray off
+blur_passes 3
+blur_radius 5
+
+# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+default_dim_inactive 0.17
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+# Move minimized windows into Scratchpad (enable|disable)
+scratchpad_minimize disable
+
+### Colors
+#
+# target                 title     bg    text   indicator  border
+client.focused           $mauve    $base $text  $mauve     $mauve
+client.focused_inactive  $overlay0 $base $text  $overlay0  $overlay0
+client.unfocused         $overlay0 $base $text  $overlay0  $overlay0
+client.urgent            $red      $base $peach $red       $red
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+### Output configuration
+#
+output eDP-1 scale 1.25
+
+focus_follows_mouse yes
+
+### Key bindings
+#
+# Basics:
+#
+bindsym $mod+Return exec $term
+bindsym Ctrl+Mod1+t exec $term
+bindsym $mod+q kill
+bindsym $mod+a exec $launcher
+bindsym $mod+f exec $browser
+bindsym $mod+b exec $bar
+bindsym $mod+e exec $files
+bindsym $mod+Mod1+l exec hyprlock
+bindsym $mod+n exec $notification
+
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym Ctrl+Mod1+Delete exec $logout
+
+# Moving around:
+#
+# Move your focus around
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Workspaces:
+#
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# Move focused container to workspace
+bindsym $mod+Mod1+1 move container to workspace number 1
+bindsym $mod+Mod1+2 move container to workspace number 2
+bindsym $mod+Mod1+3 move container to workspace number 3
+bindsym $mod+Mod1+4 move container to workspace number 4
+bindsym $mod+Mod1+5 move container to workspace number 5
+bindsym $mod+Mod1+6 move container to workspace number 6
+bindsym $mod+Mod1+7 move container to workspace number 7
+bindsym $mod+Mod1+8 move container to workspace number 8
+bindsym $mod+Mod1+9 move container to workspace number 9
+
+# Switch next or previous workspace
+bindsym $mod+Ctrl+Left exec --no-startup-id swaymsg workspace number $(~/Desktop/.Scripts/ws-prev)
+bindsym $mod+Ctrl+Right exec --no-startup-id swaymsg workspace number $(~/Desktop/.Scripts/ws-next)
+
+# Layout stuff:
+#
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+w floating toggle
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Laptop Lid
+bindswitch lid:on exec --no-startup-id hyprlock
+
+# Function Keys
+#
+# Volume
+bindsym XF86AudioRaiseVolume        exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
+bindsym XF86AudioLowerVolume        exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- -l 1.0
+bindsym XF86AudioMute               exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute            exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym Shift+XF86AudioRaiseVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0
+bindsym Shift+XF86AudioLowerVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01- -l 1.0
+
+# Brightness
+bindsym XF86MonBrightnessUp         exec brightnessctl -q s 5%+
+bindsym XF86MonBrightnessDown       exec brightnessctl -q s 5%-
+bindsym Mod1+XF86MonBrightnessUp    exec brightnessctl -q s 5%-
+
+# Screenshots
+bindsym Print exec $ss -c
+bindsym Mod1+Print exec $ss -s -c
+bindsym Ctrl+Print exec $ss
+bindsym Shift+Print exec $ss -s
+
+
+# Keyboard Layout
+bindsym $mod+k exec ~/.local/bin/switch-kb-layout
+
+### Window Rules
+#
+# Appearance
+default_border pixel 3
+gaps inner 5
+gaps outer 7
+
+# Opacity
+for_window [class=".*"] opacity set 0.8
+for_window [app_id="gimp*"] opacity set 1.0
+for_window [app_id="krita*"] opacity set 1.0
+for_window [app_id="org.inkscape.Inkscape"] opacity set 1.0
+for_window [app_id="virt-manager"] opacity set 1.0
+for_window [app_id="com.obsproject.Studio"] opacity set 1.0
+
+# Blur
+for_window [app_id="gimp*"] blur disable
+for_window [class="krita*"] blur disable
+for_window [app_id="org.inkscape.Inkscape"] blur disable
+for_window [app_id="virt-manager"] blur disable
+for_window [app_id="com.obsproject.Studio"] blur disable
+
+include /etc/sway/config.d/*

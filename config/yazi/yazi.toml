@@ -1,0 +1,11 @@
+[manager]
+
+sort_by = 'alphabetical'
+linemode = 'size_and_mtime'
+show_symlink = true
+
+[opener]
+
+edit = [
+  {run = 'nvim $@', block = true, for = 'unix'}
+]

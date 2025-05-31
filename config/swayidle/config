@@ -1,0 +1,3 @@
+timeout 300 'hyprlock &'
+timeout 360 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+timeout 390 'systemctl suspend' before-sleep 'hyprlock &'
