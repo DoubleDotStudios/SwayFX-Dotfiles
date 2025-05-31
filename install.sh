@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Set script to exit on: error or pipefail
-# Also set script to print out commands before execution
-set -exo pipefail
+set -eo pipefail
 
 # Clone the dotfiles repo
 echo "Cloning repo: https://github.com/DoubleDotStudios/SwayFX-Dotfiles"
@@ -37,6 +36,27 @@ echo "Done!\n"
 # Move .zshrc scripts to ~
 echo "Moving .zshrc to ~..."
 mv ./zshrc ~
+echo "Done!\n"
+
+# Move fonts to ~/.local/share/fonts
+echo "Moving fonts to ~/.local/share/fonts..."
+mkdir -p ~/.local/share/fonts
+mv ./fonts/* ~/.local/share/fonts/
+echo "Done!\n"
+
+# Unzip newly added fonts
+echo "Decompressing fonts..."
+unzip ~/.local/share/fonts/*
+echo "Done!\n"
+
+# Rebuild font cache
+echo "Rebuilding font cache..."
+fc-cache -f -v
+echo "Done!\n"
+
+# Move cursors and icons to ~/.icons
+echo "Moving cursors and icons to ~/.icons"
+mv ./icons/* ~/.icons/
 echo "Done!\n"
 
 # Install SolarVim
