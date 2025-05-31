@@ -54,6 +54,12 @@ echo "Moving cursors and icons to ~/.icons"
 mv ./icons/* ~/.icons/
 echo "Done!\n"
 
+# Move wallpapers to ~/Pictures/Wallpapers
+echo "Moving wallpapers to ~/Pictures/Wallpapers"
+mkdir -p ~/Pictures/Wallpapers
+mv ./wallpapers/* ~/Pictures/Wallpapers/
+echo "Done!\n"
+
 # Install SolarVim
 echo "Installing SolarVim..."
 git clone https://github.com/DoubleDotStudios/SolarVim.git
