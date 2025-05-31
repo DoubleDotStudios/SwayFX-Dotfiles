@@ -1,0 +1,6 @@
+:root {
+  --tf-font-family: "CaskaydiaCove Nerd Font", "JetBrains Mono Nerd Font", Consolas, monospace;
+  --tf-rounding: 8px;
+  --tf-display-sidebar-tools: none;
+  --tf-border: #6C7086;
+}
